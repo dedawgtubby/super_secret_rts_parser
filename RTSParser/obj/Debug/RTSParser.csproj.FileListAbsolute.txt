@@ -1,0 +1,7 @@
+C:\Users\p005442c\source\repos\RTSParser\RTSParser\bin\Debug\RTSParser.exe.config
+C:\Users\p005442c\source\repos\RTSParser\RTSParser\bin\Debug\RTSParser.exe
+C:\Users\p005442c\source\repos\RTSParser\RTSParser\bin\Debug\RTSParser.pdb
+C:\Users\p005442c\source\repos\RTSParser\RTSParser\obj\Debug\RTSParser.csproj.CoreCompileInputs.cache
+C:\Users\p005442c\source\repos\RTSParser\RTSParser\obj\Debug\RTSParser.exe
+C:\Users\p005442c\source\repos\RTSParser\RTSParser\obj\Debug\RTSParser.pdb
+C:\Users\p005442c\source\repos\RTSParser\RTSParser\obj\Debug\RTSParser.csprojAssemblyReference.cache

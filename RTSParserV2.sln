@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTSParserV2", "RTSParser\RTSParserV2.csproj", "{0DE173EA-C501-407A-89EA-992E6008C2FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DE173EA-C501-407A-89EA-992E6008C2FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DE173EA-C501-407A-89EA-992E6008C2FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DE173EA-C501-407A-89EA-992E6008C2FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DE173EA-C501-407A-89EA-992E6008C2FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51912881-5339-4026-8004-51395F784ED4}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,1449 @@
+[msldblist_version_start]
+    version = 2.06.00
+[msldblist_version_end]
+
+[missile_entry_start]
+    missile_db_id = irbm1_rj-0001
+    msl_db_file_missile = irbm1_rj-0001.missile
+    msl_db_file_model = irbm1_rj-0001.model
+    msl_db_file_object = irbm1_rj-0001.object
+    msl_db_file_config = irbm1_rj-0001.config
+    msl_db_file_range_overlay = irbm1_rj-0001.rodb
+    missile_id_name = IRBM1
+    missile_name = IRBM1
+    intel_name = Unavailable
+    adp_name = Unavailable
+    source = MDA/DIS Case No. JPN-FD-0266-17, 10 Oct 2017
+    fidelities = fast-3dof;3dof;6dof
+    external_fidelities = Fast Processing;Standard Processing;Highest Fidelity
+    db_version = 19.03.15
+    msl_sysid = 1052
+    msl_sysop = 1
+    missile_classification = UNCLASSIFIED
+    msl_orig_country = UNK
+    msl_num_rvs = 1
+    msl_max_range = 3734.0
+    msl_min_range = 1100.0
+    msl_max_range_tof = 1435.0
+    msl_min_range_tof = 504.6
+    min_energy_max_range = 0.0
+    min_energy_min_range = 0.0
+    msl_ioc = UNK
+    msl_launcher = TEL
+    msl_num_pbvs = 0
+    msl_cep = 1600.0
+    msl_capability_flags = yaw_capable - No
+    slv_capability_flag = false
+    stitching_capability_flag = false
+    airbreather_capability_flag = false
+    msl_dimensions =  total_length - 12.0 m  max_diameter - 1.5 m
+    msl_num_stages = 1
+    dim_type = 
+    num_parameter_pairs = 0
+
+    [converge_param_data_entry_start]
+        enum = 4
+        min = 150.0
+        max = 170.0
+        nominal = 2.0
+    [converge_param_data_entry_end]
+
+    [converge_param_data_entry_start]
+        enum = 12
+        min = -1.0
+        max = -0.0
+        nominal = 0.1
+    [converge_param_data_entry_end]
+
+    [converge_entry_start]
+        type = 16
+        label = Approx Low Energy
+        param_label = N/A
+        param_editable = 0
+        param_min = 0.0
+        param_max = 0.0
+        param_nominal = 0.0
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 20
+        label = Depressed Search
+        param_label = N/A
+        param_editable = 0
+        param_min = 0.0
+        param_max = 0.0
+        param_nominal = 0.0
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 18
+        label = Lofted Search
+        param_label = N/A
+        param_editable = 0
+        param_min = 0.0
+        param_max = 0.0
+        param_nominal = 0.0
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 14
+        label = Minimum Energy
+        param_label = Reentry Angle (deg)
+        param_editable = 1
+        param_min = 16.1
+        param_max = 67.4
+        param_nominal = 41.7
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 5
+        label = Reentry Angle
+        param_label = Reentry Angle (deg)
+        param_editable = 1
+        param_min = 16.1
+        param_max = 67.4
+        param_nominal = 41.7
+    [converge_entry_end]
+
+    [stage_info_start]
+        stage1 propellant_type = Liquid  number_of_nozzles = 1
+    [stage_info_end]
+
+    [missile_desc_start]
+        Unclassified
+        IRBM1, liquid propellant, single stage, separating rv, variable pitch, conventional payload
+        
+        Burn Time
+        Variable = 150.0s - 178.0s (170.0s main burn & vernier + 8.0s vernier only)
+        
+        Statisical Object Variation:
+        rv_sros:                 U(5,10)
+        
+        rv/spent_last_stage dV (m/s): 0.1
+        
+        Model Performance Envelope (SNRE)
+        Nominal Max Range:    3739.00     Reentry Angle: 31.66   Time of Flight: 1112.00    Apogee: 686.30  
+        Nominal Min Range:    1228.00     Reentry Angle: 31.74   Time of Flight: 619.00     Apogee: 247.50  
+        Mid Range Lofted:     2250.00     Reentry Angle: 62.82   Time of Flight: 1435.00    Apogee: 1382.00 
+        Mid Range Depressed:  2250.00     Reentry Angle: 19.68   Time of Flight: 712.30     Apogee: 260.20  
+        Min Range Lofted:     680.50      Reentry Angle: 67.36   Time of Flight: 797.20     Apogee: 488.30  
+        Min Range Depressed:  1062.00     Reentry Angle: 16.08   Time of Flight: 504.60     Apogee: 136.40  
+        
+        Operational Performance Envelope (SNRE)
+        Max Range:            4000.0      Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Mid Range Lofted:     UNK         Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Mid Range Depressed:  UNK         Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Min Range Lofted:     UNK         Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Min Range Depressed:  UNK         Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+    [missile_desc_end]
+
+    [objs_map_start]
+        spent_last_stage              1     0                         
+        rv                            4     1                         
+        rv_sros                      16     0                         
+        1st_stage                   100     1                         
+    [objs_map_end]
+
+    [objs_lineage_start]
+        1st_stage                    rv,    rv_sros,    spent_last_stage
+    [objs_lineage_end]
+
+    [missile_source_start]
+        doc_title = (U) Foreign Disclosure Approval - MDA/DIS Case No. JPN-FD-0266-17, 10 Oct 2017
+        date = ---
+        classification = (U)
+    [missile_source_end]
+[missile_entry_end]
+
+[missile_entry_start]
+    missile_db_id = irbm1_rk-0001
+    msl_db_file_missile = irbm1_rk-0001.missile
+    msl_db_file_model = irbm1_rk-0001.model
+    msl_db_file_object = irbm1_rk-0001.object
+    msl_db_file_config = irbm1_rk-0001.config
+    msl_db_file_range_overlay = irbm1_rk-0001.rodb
+    missile_id_name = IRBM1
+    missile_name = IRBM1
+    intel_name = Unavailable
+    adp_name = Unavailable
+    source = MDA/DIS Case No. KOR-FD-0369-17, 14 Nov 2017
+    fidelities = fast-3dof;3dof;6dof
+    external_fidelities = Fast Processing;Standard Processing;Highest Fidelity
+    db_version = 19.03.15
+    msl_sysid = 1056
+    msl_sysop = 1
+    missile_classification = UNCLASSIFIED
+    msl_orig_country = UNK
+    msl_num_rvs = 1
+    msl_max_range = 3734.0
+    msl_min_range = 1100.0
+    msl_max_range_tof = 1435.0
+    msl_min_range_tof = 504.6
+    min_energy_max_range = 0.0
+    min_energy_min_range = 0.0
+    msl_ioc = UNK
+    msl_launcher = TEL
+    msl_num_pbvs = 0
+    msl_cep = 1600.0
+    msl_capability_flags = yaw_capable - No
+    slv_capability_flag = false
+    stitching_capability_flag = false
+    airbreather_capability_flag = false
+    msl_dimensions =  total_length - 12.0 m  max_diameter - 1.5 m
+    msl_num_stages = 1
+    dim_type = 
+    num_parameter_pairs = 0
+
+    [converge_param_data_entry_start]
+        enum = 4
+        min = 150.0
+        max = 170.0
+        nominal = 2.0
+    [converge_param_data_entry_end]
+
+    [converge_param_data_entry_start]
+        enum = 12
+        min = -1.0
+        max = -0.0
+        nominal = 0.1
+    [converge_param_data_entry_end]
+
+    [converge_entry_start]
+        type = 16
+        label = Approx Low Energy
+        param_label = N/A
+        param_editable = 0
+        param_min = 0.0
+        param_max = 0.0
+        param_nominal = 0.0
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 20
+        label = Depressed Search
+        param_label = N/A
+        param_editable = 0
+        param_min = 0.0
+        param_max = 0.0
+        param_nominal = 0.0
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 18
+        label = Lofted Search
+        param_label = N/A
+        param_editable = 0
+        param_min = 0.0
+        param_max = 0.0
+        param_nominal = 0.0
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 14
+        label = Minimum Energy
+        param_label = Reentry Angle (deg)
+        param_editable = 1
+        param_min = 16.1
+        param_max = 67.4
+        param_nominal = 41.7
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 5
+        label = Reentry Angle
+        param_label = Reentry Angle (deg)
+        param_editable = 1
+        param_min = 16.1
+        param_max = 67.4
+        param_nominal = 41.7
+    [converge_entry_end]
+
+    [stage_info_start]
+        stage1 propellant_type = Liquid  number_of_nozzles = 1
+    [stage_info_end]
+
+    [missile_desc_start]
+        Unclassified
+        IRBM1, liquid propellant, single stage, separating rv, variable pitch, conventional payload
+        
+        Burn Time
+        Variable = 150.0s - 178.0s (170.0s main burn & vernier + 8.0s vernier only)
+        
+        Statisical Object Variation:
+        rv_sros:                 U(5,10)
+        
+        rv/spent_last_stage dV (m/s): 0.1
+        
+        Model Performance Envelope (SNRE)
+        Nominal Max Range:    3739.00     Reentry Angle: 31.66   Time of Flight: 1112.00    Apogee: 686.30  
+        Nominal Min Range:    1228.00     Reentry Angle: 31.74   Time of Flight: 619.00     Apogee: 247.50  
+        Mid Range Lofted:     2250.00     Reentry Angle: 62.82   Time of Flight: 1435.00    Apogee: 1382.00 
+        Mid Range Depressed:  2250.00     Reentry Angle: 19.68   Time of Flight: 712.30     Apogee: 260.20  
+        Min Range Lofted:     680.50      Reentry Angle: 67.36   Time of Flight: 797.20     Apogee: 488.30  
+        Min Range Depressed:  1062.00     Reentry Angle: 16.08   Time of Flight: 504.60     Apogee: 136.40  
+        
+        Operational Performance Envelope (SNRE)
+        Max Range:            4000.0      Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Mid Range Lofted:     UNK         Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Mid Range Depressed:  UNK         Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Min Range Lofted:     UNK         Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Min Range Depressed:  UNK         Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+    [missile_desc_end]
+
+    [objs_map_start]
+        spent_last_stage              1     0                         
+        rv                            4     1                         
+        rv_sros                      16     0                         
+        1st_stage                   100     1                         
+    [objs_map_end]
+
+    [objs_lineage_start]
+        1st_stage                    rv,    rv_sros,    spent_last_stage
+    [objs_lineage_end]
+
+    [missile_source_start]
+        doc_title = (U) Foreign Disclosure Approval - MDA/DIS Case No. KOR-FD-0369-17, 14 Nov 2017
+        date = ---
+        classification = (U)
+    [missile_source_end]
+[missile_entry_end]
+
+[missile_entry_start]
+    missile_db_id = lrbm1_rj-0001
+    msl_db_file_missile = lrbm1_rj-0001.missile
+    msl_db_file_model = lrbm1_rj-0001.model
+    msl_db_file_object = lrbm1_rj-0001.object
+    msl_db_file_config = lrbm1_rj-0001.config
+    msl_db_file_range_overlay = lrbm1_rj-0001.rodb
+    missile_id_name = LRBM1
+    missile_name = LRBM1
+    intel_name = Unavailable
+    adp_name = Unavailable
+    source = MDA/DIS Case No. JPN-FD-0266-17, 10 Oct 2017
+    fidelities = fast-3dof;3dof;6dof
+    external_fidelities = Fast Processing;Standard Processing;Highest Fidelity
+    db_version = 19.03.15
+    msl_sysid = 1053
+    msl_sysop = 1
+    missile_classification = UNCLASSIFIED
+    msl_orig_country = UNK
+    msl_num_rvs = 1
+    msl_max_range = 6516.0
+    msl_min_range = 3476.0
+    msl_max_range_tof = 1867.4
+    msl_min_range_tof = 836.6
+    min_energy_max_range = 0.0
+    min_energy_min_range = 0.0
+    msl_ioc = UNK
+    msl_launcher = UNK
+    msl_num_pbvs = 0
+    msl_cep = 8000.0
+    msl_capability_flags = yaw_capable - No
+    slv_capability_flag = false
+    stitching_capability_flag = false
+    airbreather_capability_flag = false
+    msl_dimensions =  total_length - 32.0 m  max_diameter - 2.4 m
+    msl_num_stages = 3
+    dim_type = 
+    num_parameter_pairs = 0
+
+    [converge_param_data_entry_start]
+        enum = 4
+        min = 255.0
+        max = 330.0
+        nominal = 7.5
+    [converge_param_data_entry_end]
+
+    [converge_param_data_entry_start]
+        enum = 12
+        min = -2.6
+        max = 0.0
+        nominal = 0.3
+    [converge_param_data_entry_end]
+
+    [converge_entry_start]
+        type = 16
+        label = Approx Low Energy
+        param_label = N/A
+        param_editable = 0
+        param_min = 0.0
+        param_max = 0.0
+        param_nominal = 0.0
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 20
+        label = Depressed Search
+        param_label = N/A
+        param_editable = 0
+        param_min = 0.0
+        param_max = 0.0
+        param_nominal = 0.0
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 18
+        label = Lofted Search
+        param_label = N/A
+        param_editable = 0
+        param_min = 0.0
+        param_max = 0.0
+        param_nominal = 0.0
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 14
+        label = Minimum Energy
+        param_label = Reentry Angle (deg)
+        param_editable = 1
+        param_min = 12.3
+        param_max = 48.6
+        param_nominal = 30.5
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 5
+        label = Reentry Angle
+        param_label = Reentry Angle (deg)
+        param_editable = 1
+        param_min = 12.3
+        param_max = 48.6
+        param_nominal = 30.5
+    [converge_entry_end]
+
+    [stage_info_start]
+        stage1 propellant_type = liquid  number_of_nozzles = 4
+        stage2 propellant_type = liquid  number_of_nozzles = 1
+        stage3 propellant_type = solid  number_of_nozzles = 1
+    [stage_info_end]
+
+    [missile_desc_start]
+        Unclassified
+        LRBM1, three stage ICBM, 1st and 2nd stage liquid propellant, solid 3rd stage, separating rv
+        Variable 3rd stage burn time and first stage pitch
+        
+        Burn Time
+        Variable = 255.0 - 330.0 (1st_stage: 120.0, 2nd_stage: 110.0, 3rd_stage: 100.0)
+        
+        Statisical Object Variation:
+        rv_sros   U(5,10)
+        
+        2nd_stage/spent_1st_stage dV (m/s): 0.1
+        3rd_stage/spent_2nd_stage dV (m/s): 0.1
+        rv/spent_last_stage dV (m/s): 0.1
+        
+        Model Performance Envelope (SNRE)
+        Nominal Max Range:    6516.0      Reentry Angle: 23.5    Time of Flight: 1493.1     Apogee: 886.7   
+        Nominal Min Range:    4072.0      Reentry Angle: 24.1    Time of Flight: 1054.7     Apogee: 557.5   
+        Mid Range Lofted:     5147.0      Reentry Angle: 45.9    Time of Flight: 1867.4     Apogee: 1786.7  
+        Mid Range Depressed:  5645.0      Reentry Angle: 12.3    Time of Flight: 1128.8     Apogee: 399.0   
+        Min Range Lofted:     3476.0      Reentry Angle: 48.6    Time of Flight: 1424.3     Apogee: 1238.8  
+        Min Range Depressed:  3494.0      Reentry Angle: 15.1    Time of Flight: 836.6      Apogee: 308.1   
+        
+        Operational Performance Envelope (SNRE)
+        Max Range:            6500.0      Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Mid Range Lofted:     UNK         Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Mid Range Depressed:  UNK         Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Min Range Lofted:     3500.0      Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Min Range Depressed:  3500.0      Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+    [missile_desc_end]
+
+    [objs_map_start]
+        spent_last_stage              1     0                         
+        rv                            4     1                         
+        rv_sros                      16     0                         
+        spent_1st_stage              81     0                         
+        spent_2nd_stage              82     0                         
+        interstage1                  88     0                         
+        interstage2                  88     0                         
+        1st_stage                   100     1                         
+        2nd_stage                   200     1                         
+        3rd_stage                   300     1                         
+    [objs_map_end]
+
+    [objs_lineage_start]
+        1st_stage                    2nd_stage,    spent_1st_stage
+        2nd_stage                    3rd_stage,    interstage1,    spent_2nd_stage
+        3rd_stage                    interstage2,    rv,    rv_sros,    spent_last_stage
+    [objs_lineage_end]
+
+    [missile_source_start]
+        doc_title = (U) Foreign Disclosure Approval - MDA/DIS Case No. JPN-FD-0267-17, 10 Oct 2017
+        date = ---
+        classification = (U)
+    [missile_source_end]
+[missile_entry_end]
+
+[missile_entry_start]
+    missile_db_id = lrbm1_rk-0001
+    msl_db_file_missile = lrbm1_rk-0001.missile
+    msl_db_file_model = lrbm1_rk-0001.model
+    msl_db_file_object = lrbm1_rk-0001.object
+    msl_db_file_config = lrbm1_rk-0001.config
+    msl_db_file_range_overlay = lrbm1_rk-0001.rodb
+    missile_id_name = LRBM1
+    missile_name = LRBM1
+    intel_name = Unavailable
+    adp_name = Unavailable
+    source = MDA/DIS Case No. KOR-FD-0370-17, 14 Nov 2017
+    fidelities = fast-3dof;3dof;6dof
+    external_fidelities = Fast Processing;Standard Processing;Highest Fidelity
+    db_version = 19.03.15
+    msl_sysid = 1057
+    msl_sysop = 1
+    missile_classification = UNCLASSIFIED
+    msl_orig_country = UNK
+    msl_num_rvs = 1
+    msl_max_range = 6516.0
+    msl_min_range = 3476.0
+    msl_max_range_tof = 1867.4
+    msl_min_range_tof = 836.6
+    min_energy_max_range = 0.0
+    min_energy_min_range = 0.0
+    msl_ioc = UNK
+    msl_launcher = UNK
+    msl_num_pbvs = 0
+    msl_cep = 8000.0
+    msl_capability_flags = yaw_capable - No
+    slv_capability_flag = false
+    stitching_capability_flag = false
+    airbreather_capability_flag = false
+    msl_dimensions =  total_length - 32.0 m  max_diameter - 2.4 m
+    msl_num_stages = 3
+    dim_type = 
+    num_parameter_pairs = 0
+
+    [converge_param_data_entry_start]
+        enum = 4
+        min = 255.0
+        max = 330.0
+        nominal = 7.5
+    [converge_param_data_entry_end]
+
+    [converge_param_data_entry_start]
+        enum = 12
+        min = -2.6
+        max = 0.0
+        nominal = 0.3
+    [converge_param_data_entry_end]
+
+    [converge_entry_start]
+        type = 16
+        label = Approx Low Energy
+        param_label = N/A
+        param_editable = 0
+        param_min = 0.0
+        param_max = 0.0
+        param_nominal = 0.0
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 20
+        label = Depressed Search
+        param_label = N/A
+        param_editable = 0
+        param_min = 0.0
+        param_max = 0.0
+        param_nominal = 0.0
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 18
+        label = Lofted Search
+        param_label = N/A
+        param_editable = 0
+        param_min = 0.0
+        param_max = 0.0
+        param_nominal = 0.0
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 14
+        label = Minimum Energy
+        param_label = Reentry Angle (deg)
+        param_editable = 1
+        param_min = 12.3
+        param_max = 48.6
+        param_nominal = 30.5
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 5
+        label = Reentry Angle
+        param_label = Reentry Angle (deg)
+        param_editable = 1
+        param_min = 12.3
+        param_max = 48.6
+        param_nominal = 30.5
+    [converge_entry_end]
+
+    [stage_info_start]
+        stage1 propellant_type = liquid  number_of_nozzles = 4
+        stage2 propellant_type = liquid  number_of_nozzles = 1
+        stage3 propellant_type = solid  number_of_nozzles = 1
+    [stage_info_end]
+
+    [missile_desc_start]
+        Unclassified
+        LRBM1, three stage ICBM, 1st and 2nd stage liquid propellant, solid 3rd stage, separating rv
+        Variable 3rd stage burn time and first stage pitch
+        
+        Burn Time
+        Variable = 255.0 - 330.0 (1st_stage: 120.0, 2nd_stage: 110.0, 3rd_stage: 100.0)
+        
+        Statisical Object Variation:
+        rv_sros   U(5,10)
+        
+        2nd_stage/spent_1st_stage dV (m/s): 0.1
+        3rd_stage/spent_2nd_stage dV (m/s): 0.1
+        rv/spent_last_stage dV (m/s): 0.1
+        
+        Model Performance Envelope (SNRE)
+        Nominal Max Range:    6516.0      Reentry Angle: 23.5    Time of Flight: 1493.1     Apogee: 886.7   
+        Nominal Min Range:    4072.0      Reentry Angle: 24.1    Time of Flight: 1054.7     Apogee: 557.5   
+        Mid Range Lofted:     5147.0      Reentry Angle: 45.9    Time of Flight: 1867.4     Apogee: 1786.7  
+        Mid Range Depressed:  5645.0      Reentry Angle: 12.3    Time of Flight: 1128.8     Apogee: 399.0   
+        Min Range Lofted:     3476.0      Reentry Angle: 48.6    Time of Flight: 1424.3     Apogee: 1238.8  
+        Min Range Depressed:  3494.0      Reentry Angle: 15.1    Time of Flight: 836.6      Apogee: 308.1   
+        
+        Operational Performance Envelope (SNRE)
+        Max Range:            6500.0      Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Mid Range Lofted:     UNK         Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Mid Range Depressed:  UNK         Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Min Range Lofted:     3500.0      Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Min Range Depressed:  3500.0      Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+    [missile_desc_end]
+
+    [objs_map_start]
+        spent_last_stage              1     0                         
+        rv                            4     1                         
+        rv_sros                      16     0                         
+        spent_1st_stage              81     0                         
+        spent_2nd_stage              82     0                         
+        interstage1                  88     0                         
+        interstage2                  88     0                         
+        1st_stage                   100     1                         
+        2nd_stage                   200     1                         
+        3rd_stage                   300     1                         
+    [objs_map_end]
+
+    [objs_lineage_start]
+        1st_stage                    2nd_stage,    spent_1st_stage
+        2nd_stage                    3rd_stage,    interstage1,    spent_2nd_stage
+        3rd_stage                    interstage2,    rv,    rv_sros,    spent_last_stage
+    [objs_lineage_end]
+
+    [missile_source_start]
+        doc_title = (U) Foreign Disclosure Approval - MDA/DIS Case No. KOR-FD-0370-17, 14 Nov 2017
+        date = ---
+        classification = (U)
+    [missile_source_end]
+[missile_entry_end]
+
+[missile_entry_start]
+    missile_db_id = lrm-0003
+    msl_db_file_missile = lrm-0003.missile
+    msl_db_file_model = lrm-0003.model
+    msl_db_file_object = lrm-0003.object
+    msl_db_file_config = lrm-0003.config
+    msl_db_file_range_overlay = lrm-0003.rodb
+    missile_id_name = LRM (Public Releasable)
+    missile_name = LRM (Public Releasable)
+    intel_name = Unavailable
+    adp_name = Unavailable
+    source = Public Release, Case No: 03-MDA-0404
+    fidelities = 3dof
+    external_fidelities = Standard Processing
+    db_version = 18.02.03
+    msl_sysid = 322
+    msl_sysop = 1
+    missile_classification = UNCLASSIFIED
+    msl_orig_country = FICTIONAL
+    msl_num_rvs = 1
+    msl_max_range = 11665.6
+    msl_min_range = 2155.0
+    msl_max_range_tof = 2632.7
+    msl_min_range_tof = 705.9
+    min_energy_max_range = 0.0
+    min_energy_min_range = 0.0
+    msl_ioc = 1998
+    msl_launcher = SILO
+    msl_num_pbvs = 1
+    msl_cep = 1835.0
+    msl_capability_flags = yaw_capable - No
+    slv_capability_flag = false
+    stitching_capability_flag = false
+    airbreather_capability_flag = false
+    msl_dimensions =  total_length - 21.0 m  max_diameter - 2.431 m
+    msl_num_stages = 3
+    dim_type = 
+    num_parameter_pairs = 0
+
+    [converge_param_data_entry_start]
+        enum = 4
+        min = 187.0
+        max = 232.0
+        nominal = 4.5
+    [converge_param_data_entry_end]
+
+    [converge_param_data_entry_start]
+        enum = 12
+        min = -4.1
+        max = -0.5
+        nominal = 0.4
+    [converge_param_data_entry_end]
+
+    [converge_entry_start]
+        type = 16
+        label = Approx Low Energy
+        param_label = N/A
+        param_editable = 0
+        param_min = 0.0
+        param_max = 0.0
+        param_nominal = 0.0
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 20
+        label = Depressed Search
+        param_label = N/A
+        param_editable = 0
+        param_min = 0.0
+        param_max = 0.0
+        param_nominal = 0.0
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 18
+        label = Lofted Search
+        param_label = N/A
+        param_editable = 0
+        param_min = 0.0
+        param_max = 0.0
+        param_nominal = 0.0
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 14
+        label = Minimum Energy
+        param_label = Reentry Angle (deg)
+        param_editable = 1
+        param_min = 19.5
+        param_max = 76.3
+        param_nominal = 47.9
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 5
+        label = Reentry Angle
+        param_label = Reentry Angle (deg)
+        param_editable = 1
+        param_min = 19.5
+        param_max = 76.3
+        param_nominal = 47.9
+    [converge_entry_end]
+
+    [stage_info_start]
+        stage1 propellant_type = Liquid  number_of_nozzles = 4
+        stage2 propellant_type = Liquid  number_of_nozzles = 1
+        stage3 propellant_type = Liquid  number_of_nozzles = 1
+    [stage_info_end]
+
+    [missile_desc_start]
+        2004 version of PUBLIC RELEASABLE missile system
+        Baseline three-stage version with a nuclear RV
+        Modeling Data: Fictional
+        
+        Model Performance Envelope (SNRE)
+        Max Range:            11674.000   Reentry Angle: 18.415  Time of Flight: 2252.000   Apogee: 1253.800
+        Mid Range Lofted:     7776.998    Reentry Angle: 44.300  Time of Flight: 2632.734   Apogee: 2818.296
+        Mid Range Depressed:  7776.995    Reentry Angle: 19.498  Time of Flight: 1572.913   Apogee: 820.669 
+        Min Range Lofted:     842.300     Reentry Angle: 79.466  Time of Flight: 1388.500   Apogee: 1408.600
+        Min Range Depressed:  2351.100    Reentry Angle: 10.771  Time of Flight: 621.428    Apogee: 163.538 
+        
+        Operational Performance Envelope (SNRE)
+        Max Range:            11665.601   Reentry Angle: 19.498  Time of Flight: 2296.799   Apogee: 1346.174
+        Mid Range Lofted:     7776.998    Reentry Angle: 44.300  Time of Flight: 2632.734   Apogee: 2818.296
+        Mid Range Depressed:  7776.995    Reentry Angle: 19.498  Time of Flight: 1572.913   Apogee: 820.669 
+        Min Range Lofted:     2155.000    Reentry Angle: 76.300  Time of Flight: 2566.842   Apogee: 3384.584
+        Min Range Depressed:  2453.002    Reentry Angle: 19.498  Time of Flight: 705.863    Apogee: 267.736 
+    [missile_desc_end]
+
+    [objs_map_start]
+        spent_last_stage              1     0                         
+        rv                            4     1                         
+        spent_pbv                     5     0                         
+        tank_sros                     7     0                         
+        shroud_1                     11     0                         
+        shroud_2                     11     0                         
+        rv_sros                      16     0                         
+        spent_1st_stage              81     0                         
+        spent_2nd_stage              82     0                         
+        1st_stage                   100     1                         
+        2nd_stage                   200     1                         
+        3rd_stage                   300     1                         
+        pbv                         900     1                         
+    [objs_map_end]
+
+    [objs_lineage_start]
+        1st_stage                    2nd_stage,    spent_1st_stage
+        2nd_stage                    3rd_stage,    shroud_1,    shroud_2,    spent_2nd_stage
+        3rd_stage                    pbv,    spent_last_stage,    tank_sros
+        pbv                          rv,    rv_sros,    spent_pbv
+    [objs_lineage_end]
+
+    [missile_source_start]
+        doc_title = Public Release, Case No: 03-MDA-0404 Missile Models for Unclassified Wargaming Requirements Memo
+        date = March 15, 2004
+        classification = (U)
+        doc_title = Renaming Missile Models for Public Release Case 03-MDA-0404 Email
+        date = March 15, 2004
+        classification = (U)
+    [missile_source_end]
+[missile_entry_end]
+
+[missile_entry_start]
+    missile_db_id = mrbm1_rj-0001
+    msl_db_file_missile = mrbm1_rj-0001.missile
+    msl_db_file_model = mrbm1_rj-0001.model
+    msl_db_file_object = mrbm1_rj-0001.object
+    msl_db_file_config = mrbm1_rj-0001.config
+    msl_db_file_range_overlay = mrbm1_rj-0001.rodb
+    missile_id_name = MRBM1
+    missile_name = MRBM1
+    intel_name = Unavailable
+    adp_name = Unavailable
+    source = MDA/DIS Case No. JPN-FD-0268-17, 10 Oct 2017
+    fidelities = fast-3dof;3dof;6dof
+    external_fidelities = Fast Processing;Standard Processing;Highest Fidelity
+    db_version = 19.03.15
+    msl_sysid = 1051
+    msl_sysop = 1
+    missile_classification = UNCLASSIFIED
+    msl_orig_country = UNK
+    msl_num_rvs = 1
+    msl_max_range = 2000.0
+    msl_min_range = 800.0
+    msl_max_range_tof = 1066.0
+    msl_min_range_tof = 791.2
+    min_energy_max_range = 0.0
+    min_energy_min_range = 0.0
+    msl_ioc = UNK
+    msl_launcher = TEL
+    msl_num_pbvs = 0
+    msl_cep = 1500.0
+    msl_capability_flags = yaw_capable - No
+    slv_capability_flag = false
+    stitching_capability_flag = false
+    airbreather_capability_flag = false
+    msl_dimensions =  total_length - 17.6 m  max_diameter - 1.25 m
+    msl_num_stages = 2
+    dim_type = 
+    num_parameter_pairs = 0
+
+    [converge_param_data_entry_start]
+        enum = 12
+        min = -0.8
+        max = -0.2
+        nominal = 0.1
+    [converge_param_data_entry_end]
+
+    [converge_entry_start]
+        type = 0
+        label = None
+        param_label = N/A
+        param_editable = 0
+        param_min = 0.0
+        param_max = 0.0
+        param_nominal = 0.0
+    [converge_entry_end]
+
+    [stage_info_start]
+        stage1 propellant_type = Solid  number_of_nozzles = 1
+        stage2 propellant_type = Solid  number_of_nozzles = 1
+    [stage_info_end]
+
+    [missile_desc_start]
+        Unclassified
+        MRBM, solid propellant, two stage, separating rv, variable pitch
+        
+        Burn Time
+        Constant = 120.6 (1st_stage: 61.6, 2nd_stage: 59.0)
+        
+        Statisical Object Variation:
+        large_chuff:             U(0,8)
+        small_chuff:             U(75.0, 200.0), 1st 300 sec. after thrust termination
+        rv_sros:                 U(5,10)
+        
+        2nd_stage/spent_1st_stage dV (m/s): 0.1
+        rv/spent_last_stage dV (m/s): 0.1
+        
+        Model Performance Envelope (SNRE)
+        Max Range:            2005.0      Reentry Angle: 37.5    Time of Flight: 791.2      Apogee: 459.8   
+        Mid Range:            1400.0      Reentry Angle: 62.9    Time of Flight: 1010.4     Apogee: 816.4   
+        Min Range:            789.8       Reentry Angle: 75.6    Time of Flight: 1066.0     Apogee: 925.3   
+        
+        Operational Performance Envelope (SNRE)
+        Max Range:            2000.0      Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Mid Range:            UNK         Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Min Range:            UNK         Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+    [missile_desc_end]
+
+    [objs_map_start]
+        spent_last_stage              1     0                         
+        rv                            4     1                         
+        rv_sros                      16     0                         
+        spent_1st_stage              81     0                         
+        1st_stage                   100     1                         
+        2nd_stage                   200     1                         
+        large_chuff                 281     0                         
+        small_chuff                 283     0                         
+    [objs_map_end]
+
+    [objs_lineage_start]
+        spent_last_stage             large_chuff,    small_chuff
+        1st_stage                    2nd_stage,    spent_1st_stage
+        2nd_stage                    rv,    rv_sros,    spent_last_stage
+    [objs_lineage_end]
+
+    [missile_source_start]
+        doc_title = (U) Foreign Disclosure Approval - MDA/DIS Case No. JPN-FD-0268-17, 10 Oct 2017
+        date = ---
+        classification = (U)
+    [missile_source_end]
+[missile_entry_end]
+
+[missile_entry_start]
+    missile_db_id = mrbm1_rk-0001
+    msl_db_file_missile = mrbm1_rk-0001.missile
+    msl_db_file_model = mrbm1_rk-0001.model
+    msl_db_file_object = mrbm1_rk-0001.object
+    msl_db_file_config = mrbm1_rk-0001.config
+    msl_db_file_range_overlay = mrbm1_rk-0001.rodb
+    missile_id_name = MRBM1
+    missile_name = MRBM1
+    intel_name = Unavailable
+    adp_name = Unavailable
+    source = MDA/DIS Case No. KOR-FD-0371-17, 14 Nov 2017
+    fidelities = fast-3dof;3dof;6dof
+    external_fidelities = Fast Processing;Standard Processing;Highest Fidelity
+    db_version = 19.03.15
+    msl_sysid = 1055
+    msl_sysop = 1
+    missile_classification = UNCLASSIFIED
+    msl_orig_country = UNK
+    msl_num_rvs = 1
+    msl_max_range = 2000.0
+    msl_min_range = 800.0
+    msl_max_range_tof = 1066.0
+    msl_min_range_tof = 791.2
+    min_energy_max_range = 0.0
+    min_energy_min_range = 0.0
+    msl_ioc = UNK
+    msl_launcher = TEL
+    msl_num_pbvs = 0
+    msl_cep = 1500.0
+    msl_capability_flags = yaw_capable - No
+    slv_capability_flag = false
+    stitching_capability_flag = false
+    airbreather_capability_flag = false
+    msl_dimensions =  total_length - 17.6 m  max_diameter - 1.25 m
+    msl_num_stages = 2
+    dim_type = 
+    num_parameter_pairs = 0
+
+    [converge_param_data_entry_start]
+        enum = 12
+        min = -0.8
+        max = -0.2
+        nominal = 0.1
+    [converge_param_data_entry_end]
+
+    [converge_entry_start]
+        type = 0
+        label = None
+        param_label = N/A
+        param_editable = 0
+        param_min = 0.0
+        param_max = 0.0
+        param_nominal = 0.0
+    [converge_entry_end]
+
+    [stage_info_start]
+        stage1 propellant_type = Solid  number_of_nozzles = 1
+        stage2 propellant_type = Solid  number_of_nozzles = 1
+    [stage_info_end]
+
+    [missile_desc_start]
+        Unclassified
+        MRBM, solid propellant, two stage, separating rv, variable pitch
+        
+        Burn Time
+        Constant = 120.6 (1st_stage: 61.6, 2nd_stage: 59.0)
+        
+        Statisical Object Variation:
+        large_chuff:             U(0,8)
+        small_chuff:             U(75.0, 200.0), 1st 300 sec. after thrust termination
+        rv_sros:                 U(5,10)
+        
+        2nd_stage/spent_1st_stage dV (m/s): 0.1
+        rv/spent_last_stage dV (m/s): 0.1
+        
+        Model Performance Envelope (SNRE)
+        Max Range:            2005.0      Reentry Angle: 37.5    Time of Flight: 791.2      Apogee: 459.8   
+        Mid Range:            1400.0      Reentry Angle: 62.9    Time of Flight: 1010.4     Apogee: 816.4   
+        Min Range:            789.8       Reentry Angle: 75.6    Time of Flight: 1066.0     Apogee: 925.3   
+        
+        Operational Performance Envelope (SNRE)
+        Max Range:            2000.0      Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Mid Range:            UNK         Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Min Range:            UNK         Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+    [missile_desc_end]
+
+    [objs_map_start]
+        spent_last_stage              1     0                         
+        rv                            4     1                         
+        rv_sros                      16     0                         
+        spent_1st_stage              81     0                         
+        1st_stage                   100     1                         
+        2nd_stage                   200     1                         
+        large_chuff                 281     0                         
+        small_chuff                 283     0                         
+    [objs_map_end]
+
+    [objs_lineage_start]
+        spent_last_stage             large_chuff,    small_chuff
+        1st_stage                    2nd_stage,    spent_1st_stage
+        2nd_stage                    rv,    rv_sros,    spent_last_stage
+    [objs_lineage_end]
+
+    [missile_source_start]
+        doc_title = (U) Foreign Disclosure Approval - MDA/DIS Case No. KOR-FD-0371-17, 14 Nov 2017
+        date = ---
+        classification = (U)
+    [missile_source_end]
+[missile_entry_end]
+
+[missile_entry_start]
+    missile_db_id = mrm-0003
+    msl_db_file_missile = mrm-0003.missile
+    msl_db_file_model = mrm-0003.model
+    msl_db_file_object = mrm-0003.object
+    msl_db_file_config = mrm-0003.config
+    msl_db_file_range_overlay = mrm-0003.rodb
+    missile_id_name = MRM (Public Releasable)
+    missile_name = MRM (Public Releasable)
+    intel_name = Unavailable
+    adp_name = Unavailable
+    source = Public Release, Case No: 03-MDA-0404
+    fidelities = 3dof
+    external_fidelities = Standard Processing
+    db_version = 18.02.03
+    msl_sysid = 333
+    msl_sysop = 1
+    missile_classification = UNCLASSIFIED
+    msl_orig_country = FICTIONAL
+    msl_num_rvs = 1
+    msl_max_range = 1500.0
+    msl_min_range = 500.0
+    msl_max_range_tof = 838.5
+    msl_min_range_tof = 503.0
+    min_energy_max_range = 0.0
+    min_energy_min_range = 0.0
+    msl_ioc = 2004
+    msl_launcher = TEL
+    msl_num_pbvs = 0
+    msl_cep = 0.0
+    msl_capability_flags = yaw_capable - No
+    slv_capability_flag = false
+    stitching_capability_flag = false
+    airbreather_capability_flag = false
+    msl_dimensions =  total_length - 18.0 m  max_diameter - 1.6 m
+    msl_num_stages = 2
+    dim_type = 
+    num_parameter_pairs = 0
+
+    [converge_param_data_entry_start]
+        enum = 4
+        min = 95.0
+        max = 110.0
+        nominal = 1.5
+    [converge_param_data_entry_end]
+
+    [converge_param_data_entry_start]
+        enum = 12
+        min = -3.0
+        max = -1.0
+        nominal = 0.2
+    [converge_param_data_entry_end]
+
+    [converge_entry_start]
+        type = 16
+        label = Approx Low Energy
+        param_label = N/A
+        param_editable = 0
+        param_min = 0.0
+        param_max = 0.0
+        param_nominal = 0.0
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 20
+        label = Depressed Search
+        param_label = N/A
+        param_editable = 0
+        param_min = 0.0
+        param_max = 0.0
+        param_nominal = 0.0
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 18
+        label = Lofted Search
+        param_label = N/A
+        param_editable = 0
+        param_min = 0.0
+        param_max = 0.0
+        param_nominal = 0.0
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 14
+        label = Minimum Energy
+        param_label = Reentry Angle (deg)
+        param_editable = 1
+        param_min = 25.0
+        param_max = 64.2
+        param_nominal = 44.6
+    [converge_entry_end]
+
+    [converge_entry_start]
+        type = 5
+        label = Reentry Angle
+        param_label = Reentry Angle (deg)
+        param_editable = 1
+        param_min = 25.0
+        param_max = 64.2
+        param_nominal = 44.6
+    [converge_entry_end]
+
+    [stage_info_start]
+        stage1 propellant_type = Solid  number_of_nozzles = 4
+        stage2 propellant_type = Liquid  number_of_nozzles = 1
+    [stage_info_end]
+
+    [missile_desc_start]
+        2004 version of PUBLIC RELEASABLE missile system
+        Modeling Data: Fictional
+        Two stage, variable pitch system
+        
+        Model Performance Envelope (SNRE)
+        Nominal Max Range:    1520.07     Reentry Angle: 36.44   Time of Flight: 684.34     Apogee: 344.69  
+        Max Range Lofted:     1500.0      Reentry Angle: 41.00   Time of Flight: 720.896    Apogee: 394.406 
+        Max Range Depressed:  1500.0      Reentry Angle: 32.00   Time of Flight: 644.380    Apogee: 295.027 
+        Mid Range Lofted:     1000.0      Reentry Angle: 63.00   Time of Flight: 838.544    Apogee: 583.463 
+        Mid Range Depressed:  1000.0      Reentry Angle: 25.00   Time of Flight: 503.000    Apogee: 174.248 
+        Min Range Lofted:     467.38      Reentry Angle: 64.24   Time of Flight: 595.52     Apogee: 303.97  
+        Min Range Depressed:  500.0       Reentry Angle: 62.00   Time of Flight: 589.753    Apogee: 296.677 
+    [missile_desc_end]
+
+    [objs_map_start]
+        spent_last_stage              1     0                         
+        rv                            4     1                         
+        rv_sros                      16     0                         
+        spent_1st_stage              81     0                         
+        1st_stage                   100     1                         
+        2nd_stage                   200     1                         
+    [objs_map_end]
+
+    [objs_lineage_start]
+        1st_stage                    2nd_stage,    spent_1st_stage
+        2nd_stage                    rv,    rv_sros,    spent_last_stage
+    [objs_lineage_end]
+
+    [missile_source_start]
+        doc_title = Public Release, Case No: 03-MDA-0404 Missile Models for Unclassified Wargaming Requirements Memo
+        date = March 15, 2004
+        classification = (U)
+        doc_title = Renaming Missile Models for Public Release Case 03-MDA-0404 Email
+        date = March 15, 2004
+        classification = (U)
+    [missile_source_end]
+[missile_entry_end]
+
+[missile_entry_start]
+    missile_db_id = srbm1_rj-0001
+    msl_db_file_missile = srbm1_rj-0001.missile
+    msl_db_file_model = srbm1_rj-0001.model
+    msl_db_file_object = srbm1_rj-0001.object
+    msl_db_file_config = srbm1_rj-0001.config
+    msl_db_file_range_overlay = srbm1_rj-0001.rodb
+    missile_id_name = SRBM1
+    missile_name = SRBM1
+    intel_name = Unavailable
+    adp_name = Unavailable
+    source = MDA/DIS Case No. JPN-FD-0269-17, 10 Oct 2017
+    fidelities = fast-3dof;3dof;6dof
+    external_fidelities = Fast Processing;Standard Processing;Highest Fidelity
+    db_version = 19.03.15
+    msl_sysid = 1050
+    msl_sysop = 1
+    missile_classification = UNCLASSIFIED
+    msl_orig_country = UNK
+    msl_num_rvs = 1
+    msl_max_range = 500.0
+    msl_min_range = 50.0
+    msl_max_range_tof = 371.1
+    msl_min_range_tof = 142.1
+    min_energy_max_range = 0.0
+    min_energy_min_range = 0.0
+    msl_ioc = UNK
+    msl_launcher = TEL
+    msl_num_pbvs = 0
+    msl_cep = 1000.0
+    msl_capability_flags = yaw_capable - No
+    slv_capability_flag = false
+    stitching_capability_flag = false
+    airbreather_capability_flag = false
+    msl_dimensions =  total_length - 10.94 m  max_diameter - 0.88 m
+    msl_num_stages = 1
+    dim_type = 
+    num_parameter_pairs = 0
+
+    [converge_param_data_entry_start]
+        enum = 4
+        min = 45.0
+        max = 75.0
+        nominal = 3.0
+    [converge_param_data_entry_end]
+
+    [converge_entry_start]
+        type = 0
+        label = None
+        param_label = N/A
+        param_editable = 0
+        param_min = 0.0
+        param_max = 0.0
+        param_nominal = 0.0
+    [converge_entry_end]
+
+    [stage_info_start]
+        stage1 propellant_type = Liquid  number_of_nozzles = 1
+    [stage_info_end]
+
+    [missile_desc_start]
+        SRBM1 with Unitary HE Payload
+        Single stage, non-separating warhead,
+        Thrust terminating, fixed pitch guidance system
+        
+        Model Performance Envelope (SNRE)
+        Max Range:            500.322     Reentry Angle: 21.463  Time of Flight: 371.103    Apogee: 113.301 
+        Mid Range:            333.331     Reentry Angle: N/A     Time of Flight: 309.001    Apogee: 78.099  
+        Min Range:            49.474      Reentry Angle: N/A     Time of Flight: 142.147    Apogee: 15.396  
+        
+        Operational Performance Envelope (SNRE)
+        Max Range:            500.0       Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Mid Range:            333.3       Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Min Range:            50.0        Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+    [missile_desc_end]
+
+    [objs_map_start]
+        ns_payload                   17     1                         
+        1st_stage                   100     1                         
+    [objs_map_end]
+
+    [objs_lineage_start]
+        1st_stage                    ns_payload
+    [objs_lineage_end]
+
+    [missile_source_start]
+        doc_title = (U) Foreign Disclosure Approval - MDA/DIS Case No. JPN-FD-0269-17, 10 Oct 2017
+        date = ---
+        classification = (U)
+    [missile_source_end]
+[missile_entry_end]
+
+[missile_entry_start]
+    missile_db_id = srbm1_rk-0001
+    msl_db_file_missile = srbm1_rk-0001.missile
+    msl_db_file_model = srbm1_rk-0001.model
+    msl_db_file_object = srbm1_rk-0001.object
+    msl_db_file_config = srbm1_rk-0001.config
+    msl_db_file_range_overlay = srbm1_rk-0001.rodb
+    missile_id_name = SRBM1
+    missile_name = SRBM1
+    intel_name = Unavailable
+    adp_name = Unavailable
+    source = MDA/DIS Case No. KOR-FD-0372-17, 14 Nov 2017
+    fidelities = fast-3dof;3dof;6dof
+    external_fidelities = Fast Processing;Standard Processing;Highest Fidelity
+    db_version = 19.03.15
+    msl_sysid = 1054
+    msl_sysop = 1
+    missile_classification = UNCLASSIFIED
+    msl_orig_country = UNK
+    msl_num_rvs = 1
+    msl_max_range = 500.0
+    msl_min_range = 50.0
+    msl_max_range_tof = 371.1
+    msl_min_range_tof = 142.1
+    min_energy_max_range = 0.0
+    min_energy_min_range = 0.0
+    msl_ioc = UNK
+    msl_launcher = TEL
+    msl_num_pbvs = 0
+    msl_cep = 1000.0
+    msl_capability_flags = yaw_capable - No
+    slv_capability_flag = false
+    stitching_capability_flag = false
+    airbreather_capability_flag = false
+    msl_dimensions =  total_length - 10.94 m  max_diameter - 0.88 m
+    msl_num_stages = 1
+    dim_type = 
+    num_parameter_pairs = 0
+
+    [converge_param_data_entry_start]
+        enum = 4
+        min = 45.0
+        max = 75.0
+        nominal = 3.0
+    [converge_param_data_entry_end]
+
+    [converge_entry_start]
+        type = 0
+        label = None
+        param_label = N/A
+        param_editable = 0
+        param_min = 0.0
+        param_max = 0.0
+        param_nominal = 0.0
+    [converge_entry_end]
+
+    [stage_info_start]
+        stage1 propellant_type = Liquid  number_of_nozzles = 1
+    [stage_info_end]
+
+    [missile_desc_start]
+        SRBM1 with Unitary HE Payload
+        Single stage, non-separating warhead,
+        Thrust terminating, fixed pitch guidance system
+        
+        Model Performance Envelope (SNRE)
+        Max Range:            500.322     Reentry Angle: 21.463  Time of Flight: 371.103    Apogee: 113.301 
+        Mid Range:            333.331     Reentry Angle: N/A     Time of Flight: 309.001    Apogee: 78.099  
+        Min Range:            49.474      Reentry Angle: N/A     Time of Flight: 142.147    Apogee: 15.396  
+        
+        Operational Performance Envelope (SNRE)
+        Max Range:            500.0       Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Mid Range:            333.3       Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+        Min Range:            50.0        Reentry Angle: UNK     Time of Flight: UNK        Apogee: UNK     
+    [missile_desc_end]
+
+    [objs_map_start]
+        ns_payload                   17     1                         
+        1st_stage                   100     1                         
+    [objs_map_end]
+
+    [objs_lineage_start]
+        1st_stage                    ns_payload
+    [objs_lineage_end]
+
+    [missile_source_start]
+        doc_title = (U) Foreign Disclosure Approval - MDA/DIS Case No. KOR-FD-0372-17, 14 Nov 2017
+        date = ---
+        classification = (U)
+    [missile_source_end]
+[missile_entry_end]
+
+[missile_entry_start]
+    missile_db_id = srm-0003
+    msl_db_file_missile = srm-0003.missile
+    msl_db_file_model = srm-0003.model
+    msl_db_file_object = srm-0003.object
+    msl_db_file_config = srm-0003.config
+    msl_db_file_range_overlay = srm-0003.rodb
+    missile_id_name = SRM (Public Releasable)
+    missile_name = SRM (Public Releasable)
+    intel_name = Unavailable
+    adp_name = Unavailable
+    source = Public Release, Case No: 03-MDA-0404
+    fidelities = 3dof
+    external_fidelities = Standard Processing
+    db_version = 19.02.03
+    msl_sysid = 333
+    msl_sysop = 1
+    missile_classification = UNCLASSIFIED
+    msl_orig_country = FICTIONAL
+    msl_num_rvs = 1
+    msl_max_range = 300.0
+    msl_min_range = 128.0
+    msl_max_range_tof = 436.9
+    msl_min_range_tof = 309.0
+    min_energy_max_range = 0.0
+    min_energy_min_range = 0.0
+    msl_ioc = 2004
+    msl_launcher = TEL
+    msl_num_pbvs = 0
+    msl_cep = 0.0
+    msl_capability_flags = yaw_capable - No
+    slv_capability_flag = false
+    stitching_capability_flag = false
+    airbreather_capability_flag = false
+    msl_dimensions =  total_length - 12.0 m  max_diameter - 1.2 m
+    msl_num_stages = 1
+    dim_type = 
+    num_parameter_pairs = 0
+
+    [converge_param_data_entry_start]
+        enum = 4
+        min = 42.5
+        max = 50.0
+        nominal = 0.8
+    [converge_param_data_entry_end]
+
+    [converge_entry_start]
+        type = 0
+        label = None
+        param_label = N/A
+        param_editable = 0
+        param_min = 0.0
+        param_max = 0.0
+        param_nominal = 0.0
+    [converge_entry_end]
+
+    [stage_info_start]
+        stage1 propellant_type = Liquid  number_of_nozzles = 1
+    [stage_info_end]
+
+    [missile_desc_start]
+        2004 version of PUBLIC RELEASABLE missile system
+        Modeling Data: Fictional
+        Single stage, fixed pitch system
+        
+        Model Performance Envelope (SNRE)
+        Max Range:            303.536     Reentry Angle: 57.390  Time of Flight: 436.859    Apogee: 176.363 
+        Mid Range:            200.016     Reentry Angle: 50.184  Time of Flight: 367.027    Apogee: 122.462 
+        Min Range:            128.477     Reentry Angle: N/A     Time of Flight: 308.982    Apogee: 84.713  
+    [missile_desc_end]
+
+    [objs_map_start]
+        spent_last_stage              1     0                         
+        rv                            4     1                         
+        rv_sros                      16     0                         
+        1st_stage                   100     1                         
+    [objs_map_end]
+
+    [objs_lineage_start]
+        1st_stage                    rv,    rv_sros,    spent_last_stage
+    [objs_lineage_end]
+
+    [missile_source_start]
+        doc_title = Public Release, Case No: 03-MDA-0404 Missile Models for Unclassified Wargaming Requirements Memo
+        date = March 15, 2004
+        classification = (U)
+        doc_title = Renaming Missile Models for Public Release Case 03-MDA-0404 Email
+        date = March 15, 2004
+        classification = (U)
+    [missile_source_end]
+[missile_entry_end]
+

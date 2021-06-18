@@ -1,0 +1,17 @@
+% UNCLASSIFIED
+% ADP_Name Object_Name
+IR_Definition
+
+    GrayBody
+        isvalid               true                % Gray Body Source Definition Validity
+
+        initial_temperature   400.00              % (K)   Initial Temperature
+        equilib_temperature   273.00              % (K)   Equilibrium Temperature
+        thermal_mass          16000               % (J/K) Thermal Mass
+
+        ir_area_surf          1.00                % (m^2) IR Surface Area
+        ir_area_proj          1.00                % (m^2) IR Projected Area
+        ir_emissivity         1.00                %       IR Emissivity
+    end
+end
+% UNCLASSIFIED
