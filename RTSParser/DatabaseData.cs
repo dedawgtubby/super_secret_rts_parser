@@ -23,7 +23,7 @@ namespace RTSParser
         }
 
 
-        public bool ReadDatabaseFile(string filePath, System.IO.StreamReader file)
+        public bool ReadDatabaseFile(System.IO.StreamReader file)
         {
             bool success;
 

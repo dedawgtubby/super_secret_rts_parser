@@ -203,7 +203,7 @@ namespace RTSParser
             {
                 AllDatabaseData = new DatabaseData();
                 fileType = EFileType.database;
-                success = AllDatabaseData.ReadDatabaseFile(filePath, file);
+                success = AllDatabaseData.ReadDatabaseFile(file);
             }
             else
             {
@@ -284,7 +284,6 @@ namespace RTSParser
                 case EFileType.smhr:
                     success = AllSmhrData.PostProcessSmhr(ConnectionString);
                     break;
-                //For tbl, currently debugging with connection to database
                 case EFileType.tbl:
                     success = AllTBLData.PostProcessTBL(ConnectionString);
                     break;

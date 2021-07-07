@@ -1,6 +1,7 @@
 ﻿using MySqlConnector;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,8 @@ namespace RTSParser
     {
         private List<SmhrDynamicData> AllDynamicData { get; set; }
         private SmhrStaticData AllStaticData { get; set; }
+        private List<int> tblplatformIDs { get; set; }
+        private List<int> tblobjectIDs { get; set; }
 
         public CombinedSmhrData()
         {
@@ -32,6 +35,7 @@ namespace RTSParser
             //!!!THIS MAY NEED TO CHANGE!!!
             AllStaticData.FileLocation = filePath;
             AllStaticData.Filename = GetFileNameFromPath(filePath);
+            AllStaticData.FileSize = GetFileSizeFromPath(filePath);
             try
             {
 
@@ -452,9 +456,18 @@ namespace RTSParser
                     throw new Exception("Unable to find adp_name for the missile type: " + AllStaticData.SystemName);
                 }
 
-                Console.WriteLine("OSDIJF");
+                //Console.WriteLine("OSDIJF");
                 conn.Open();
 
+
+                //Now we have many tables. 
+                //I have absolutely no idea if there's a smart way to map the database fields to the smhr fields dynamically. 
+                //=> hard code :(. 
+                return InputAllSmhrDataToDatabase(conn, adp_name);
+
+
+                //Previous Implementation
+                /*
                 //string sql = "INSERT INTO Country (Code, Name, HeadOfState, Continent) VALUES ('ZYZ','DisneylandTwo','Mickey Mouse', 'North America')";
                 //string sql = "INSERT INTO tbssignatureofweapon (ID, Type, FileLocation, ID_Weapon) VALUES (1,'sdoifj','osiefjs',12)";
                 //string sql = "INSERT INTO tbrobjecttype_tgx (ID, ID_UID, ID_Object, Type) VALUES (12, 'soidjf', 'sdoifjse', 'woeifjoies')";
@@ -646,6 +659,7 @@ namespace RTSParser
 
                     rdrFlightStages.Close();
                 }
+                */
             }
             catch (Exception ex)
             {
@@ -785,5 +799,288 @@ namespace RTSParser
 
             return adp_name;
         }
+
+        private bool InputAllSmhrDataToDatabase(MySqlConnection conn, string adp_name)
+        {
+            //Tables with concerns:
+            /*
+                Classification@tbltrajectory
+                Type@tblplatform
+                Type@tblobject
+                Classification@tblweapon
+             */
+
+            try
+            {
+                //First handle all tbl's that we care about, starting with ones that only contain static data
+                int tbltrajectoryID = HandleSingleRow(conn, "tbltrajectory");
+                int tblweaponID = HandleSingleRow(conn, "tblweapon", 0, 0, adp_name);
+
+                tblplatformIDs = new List<int>();
+                tblobjectIDs = new List<int>();
+                //List<int> tblweaponIDs = new List<int>();
+
+                for (int i = 0; i < AllDynamicData.Count; i++)
+                {
+                    tblplatformIDs.Add(HandleSingleRow(conn, "tblplatform", i));
+                    tblobjectIDs.Add(HandleSingleRow(conn, "tblobject", i));
+                }
+
+                //int tblanalysisID = HandleSingleRow(conn, adp_name, "tblanalysis");
+                //int tblscenarioID = HandleSingleRow(conn, adp_name, "tblscenario");
+                //int tbltradestudyID = HandleSingleRow(conn, adp_name, "tbltradestudy", tblscenarioID);
+                //HandleSingleRow(conn, adp_name, "tblobject");
+
+                //Then do the tbm's that have only static data:
+                int tbmtrajectory_weaponID = HandleSingleRow(conn, "tbmtrajectory_weapon", tblweaponID, tbltrajectoryID);
+                _ = HandleSingleRow(conn, "tbmtrajectory_weapon_ballistic", tbmtrajectory_weaponID);
+                for (int i = 0; i < AllDynamicData.Count; i++)
+                {
+                    _ = HandleSingleRow(conn, "tbmtrajectory_platform", i, tbltrajectoryID);
+                    _ = HandleSingleRow(conn, "tbmtrajectory_object", tbltrajectoryID, i);
+                    _ = HandleSingleRow(conn, "tbmweapon_object", i, tblweaponID);
+                    _ = HandleSingleRow(conn, "tbmplatform_weapon", tblweaponID, i);
+                }
+
+                //Now do the tbs tables: 
+                _ = HandleSingleRow(conn, "tbstrajectory_weapon_ballistic", tbmtrajectory_weaponID);
+                _ = HandleSingleRow(conn, "tbssignatureofweapon", tblweaponID);
+                //_ = HandleSingleRow(conn, "tbstrajectory_weapon_ballistic", tblweaponID);
+                for (int i = 0; i < AllDynamicData.Count; i++)
+                {
+                    _ = HandleSingleRow(conn, "tbssignatureofobject", i);
+                    _ = HandleSingleRow(conn, "tbssignatureofplatform", i);
+                }
+                
+                return true; //Success!
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return false; //Error!
+            }
+        }
+
+        private int HandleSingleRow(MySqlConnection conn, string tableName, int otherVal = 0, int index = 0, string strVal = "")
+        {
+            int id = GetLowestUnusedID(conn, tableName);
+            string command = GetCommandFromTable(tableName, id, otherVal, index, strVal);
+            MySqlCommand cmd = new MySqlCommand(command, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            rdr.Close();
+            return id;
+        }
+
+        private string GetCommandFromTable(string tableName, int id, int val1 = 0, int val2 = 0, string strVal = "")
+        {
+            string command;
+
+            switch (tableName)
+            {
+                case "tbltrajectory":
+                    command = "INSERT INTO tbltrajectory (ID, " +
+                        "Classification, " +
+                        "Path, " +
+                        "Filename, " +
+                        "Filetype, " +
+                        "Filesize, " +
+                        "Spec, " +
+                        "Version_Spec, " +
+                        "Version_File, " +
+                        "SourceApp, " +
+                        "Scenario_smhr, " +
+                        "TrajType, " +
+                        "GravityModel, " +
+                        "FlightMode, " +
+                        "EarthShapeModel, " +
+                        "AtmosphericModel, " +
+                        "Rotation, " +
+                        "RotationFrame, " +
+                        "EpochTime, " +
+                        "Range_Ground, " +
+                        "LaunchRegion, " +
+                        "LaunchCountry, " +
+                        "LaunchName, " +
+                        "AimRegion, " +
+                        "AimCountry, " +
+                        "AimName) VALUES (" +
+                        id + ",'" + 
+                        AllStaticData.Classification + "','" +
+                        AllStaticData.FileLocation + "','" +
+                        AllStaticData.Filename + "','" +
+                        AllStaticData.FileType + "','" +
+                        AllStaticData.FileSize + "','" + 
+                        AllStaticData.SMHRVersionNumber + "','" + //!!!Not sure about Version_spec vs. Version_File vs. Spec
+                        "','" + //!!Version_Spec is Varchar(22), ^
+                        AllStaticData.TmssIRSVersionNumber + "','" + //!!!!!^
+                        "','" +
+                        AllStaticData.ThreatName + "','" +
+                        "','" +
+                        AllStaticData.EarthGravityModel + "','" +
+                        "','" + 
+                        "','" + 
+                        AllStaticData.AtmosphericModel + "','" +
+                        AllStaticData.Rotation + "','" +
+                        AllStaticData.RotationCoordinateFrame + "','" +
+                        AllStaticData.EpochTime + "'," +
+                        "NULL,'" + //Range_Ground is a float
+                        "','" + //LaunchRegion
+                        "','" + //LaunchCountry
+                        "','" + //LaunchName
+                        "','" + //AimRegion
+                        "','" + //AimCountry
+                        "')";//AimName
+                    break;
+                case "tblobject":
+                    command = "INSERT INTO tblobject (ID, " + 
+                        "Type) VALUES (" +
+                        id + "," + 
+                        AllDynamicData[val1].ObjectType + ")"; 
+                    break;
+                case "tblplatform":
+                    command = "INSERT INTO tblplatform (ID, Type) VALUES (" + id + ",'tempVal')";
+                    //!!!This will need to change!!! Currently null because TMSS doesn't contain this value.
+                    break;
+                case "tbmtrajectory_platform":
+                    command = "INSERT INTO tbmtrajectory_platform (ID," +
+                        "ID_Platform," +
+                        "ID_Trajectory) VALUES (" +
+                        id + "," +
+                        tblplatformIDs[val1] + "," +
+                        val2 + ")";
+                    break;
+                case "tblanalysis":
+                    command = "INSERT INTO tblanalysis (ID) VALUES (" + id + ")";
+                    break;
+                case "tblscenario":
+                    command = "INSERT INTO tblscenario (ID) VALUES (" + id + ")";
+                    break;
+                case "tbltradestudy":
+                    command = "INSERT INTO tbltradestudy (ID, ID_Scenario) VALUES (" + id + "," + val1 + ")";
+                    break;
+                case "tblweapon":
+                    command = "INSERT INTO tblweapon (ID, " +
+                        "Classification, " +
+                        "Name_Generic, " +
+                        "Name_TMSS, " +
+                        "Name_ADP, " +
+                        "Name_Intel, " +
+                        "NumPBVs, " +
+                        "NumRVs, " +
+                        "NumObjs) VALUES (" +
+                        id + ",'" +
+                        AllStaticData.Classification + "'," +
+                        "NULL, '" +
+                        AllStaticData.SystemName + "','" +
+                        strVal + "'," +
+                        "NULL, " +
+                        AllStaticData.NumberPBVsOnMissile + "," +
+                        AllStaticData.NumberRVsOnMissile + "," +
+                        AllStaticData.NumberObjectsOnMissile + ")";
+                    break;
+                case "tbmtrajectory_object":
+                    command = "INSERT INTO tbmtrajectory_object (ID, " +
+                        "ID_Trajectory, " +
+                        "ID_Object, " +
+                        "ApogeeAltitude, " +
+                        "ApogeeTime, " +
+                        "AimpointLat, " +
+                        "AimpointLong) VALUES (" +
+                        id + "," +
+                        val1 + "," +
+                        tblobjectIDs[val2] + "," +
+                        AllDynamicData[val2].ApogeeAltitude + "," +
+                        AllDynamicData[val2].ApogeeTime + "," +
+                        AllDynamicData[val2].AimpointGeodeticLatitude + "," +
+                        AllDynamicData[val2].AimpointGeodeticLongitude + ")";
+                    break;
+                case "tbmtrajectory_weapon":
+                    command = "INSERT INTO tbmtrajectory_weapon (ID, " +
+                        "ID_Weapon, " +
+                        "ID_Trajectory, " +
+                        "LaunchLat, " +
+                        "LaunchLong, " +
+                        "LaunchTime, " +
+                        "LaunchAzimuth) VALUES (" +
+                        id + "," +
+                        val1 + "," +
+                        val2 + "," +
+                        AllStaticData.LaunchGeodeticLatitude + "," +
+                        AllStaticData.LaunchGeodeticLongitude + "," +
+                        AllStaticData.LaunchTime + "," +
+                        AllStaticData.LaunchAzimuth + ")";
+                    break;
+                case "tbmweapon_object":
+                    command = "INSERT INTO tbmweapon_object (ID, " +
+                        "ID_Object, " +
+                        "ID_Weapon) VALUES (" +
+                        id + "," +
+                        tblobjectIDs[val1] + "," +
+                        val2 + ")";
+                    break;
+                case "tbmplatform_weapon":
+                    command = "INSERT INTO tbmplatform_weapon (ID, " +
+                        "ID_Weapon, " +
+                        "ID_Platform) VALUES (" +
+                        id + "," +
+                        val1 + "," +
+                        tblplatformIDs[val2] + ")";
+                    break;
+                case "tbmtrajectory_weapon_ballistic":
+                    command = "INSERT INTO tbmtrajectory_weapon_ballistic (ID_Trajectory_Weapon, " +
+                        "BBOGroundRange, " +
+                        "BBOAltitude, " +
+                        "BBOTime) VALUES (" +
+                        id + "," +
+                        AllStaticData.BboGroundRange + "," +
+                        AllStaticData.BboAltitude + "," +
+                        AllStaticData.BboTime + ")";
+                    break;
+                case "tbssignatureofobject":
+                    command = "INSERT INTO tbssignatureofobject (ID, " +
+                        "ID_Object, " +
+                        "Type, " +
+                        "FileLocation, " +
+                        "FileSize, " +
+                        "Waveband) VALUES (" +
+                        id + "," +
+                        tblobjectIDs[val1] + ",'','','','')";
+                    break;
+                case "tbssignatureofplatform":
+                    command = "INSERT INTO tbssignatureofplatform (ID, " +
+                        "ID_Platform, " +
+                        "Type, " +
+                        "FileLocation) VALUES (" +
+                        id + "," +
+                        tblplatformIDs[val1] + ",'','')";
+                    break;
+                case "tbssignatureofweapon":
+                    command = "INSERT INTO tbssignatureofweapon (ID, " +
+                        "Type, " +
+                        "FileLocation, " +
+                        "ID_Weapon) VALUES (" +
+                        id + "," +
+                        "''," +
+                        "''," +
+                        val1 + ")";
+                    break;
+                case "tbstrajectory_weapon_ballistic":
+                    command = "INSERT INTO tbstrajectory_weapon_ballistic (ID_Trajectory_Weapon, " +
+                        "BBOGroundRange, " +
+                        "BBOAltitude, " +
+                        "BBOTime) VALUES (" +
+                        val1 + "," +
+                        AllStaticData.BboGroundRange + "," +
+                        AllStaticData.BboAltitude + "," +
+                        AllStaticData.BboTime + ")";
+                    break;
+                default:
+                    command = "";
+                    break;
+            }
+            return command;
+        }
+
+
+        
     }
 }

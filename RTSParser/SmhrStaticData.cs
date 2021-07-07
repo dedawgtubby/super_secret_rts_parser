@@ -11,6 +11,7 @@ namespace RTSParser
         public string FileLocation { get; set; }
         public string Filename { get; set; }
         public string FileType { get; set; } = "smhr";
+        public double FileSize { get; set; }
 
         //Record 0
         public string SMHRVersionNumber { get; set; }

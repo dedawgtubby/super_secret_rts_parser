@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTSParserV2", "RTSParser\RTSParserV2.csproj", "{0DE173EA-C501-407A-89EA-992E6008C2FF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTSParserManyTables", "RTSParser\RTSParserManyTables.csproj", "{0DE173EA-C501-407A-89EA-992E6008C2FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
