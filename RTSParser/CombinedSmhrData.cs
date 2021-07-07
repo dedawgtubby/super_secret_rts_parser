@@ -813,8 +813,9 @@ namespace RTSParser
             try
             {
                 //First handle all tbl's that we care about, starting with ones that only contain static data
-                int tbltrajectoryID = HandleSingleRow(conn, "tbltrajectory");
+                
                 int tblweaponID = HandleSingleRow(conn, "tblweapon", 0, 0, adp_name);
+                int tbltrajectoryID = HandleSingleRow(conn, "tbltrajectory");
 
                 tblplatformIDs = new List<int>();
                 tblobjectIDs = new List<int>();
@@ -822,8 +823,8 @@ namespace RTSParser
 
                 for (int i = 0; i < AllDynamicData.Count; i++)
                 {
-                    tblplatformIDs.Add(HandleSingleRow(conn, "tblplatform", i));
                     tblobjectIDs.Add(HandleSingleRow(conn, "tblobject", i));
+                    tblplatformIDs.Add(HandleSingleRow(conn, "tblplatform", i));
                 }
 
                 //int tblanalysisID = HandleSingleRow(conn, adp_name, "tblanalysis");
@@ -933,8 +934,8 @@ namespace RTSParser
                 case "tblobject":
                     command = "INSERT INTO tblobject (ID, " + 
                         "Type) VALUES (" +
-                        id + "," + 
-                        AllDynamicData[val1].ObjectType + ")"; 
+                        id + ",'" + 
+                        AllDynamicData[val1].ObjectName + "')"; 
                     break;
                 case "tblplatform":
                     command = "INSERT INTO tblplatform (ID, Type) VALUES (" + id + ",'tempVal')";

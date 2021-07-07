@@ -1,8 +1,11 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using System.Xml.XPath;
 
 namespace RTSParser
 {
@@ -18,8 +21,8 @@ namespace RTSParser
 
         //https://www.connectionstrings.com/mysql-connector-odbc-5-1/
         //https://www.connectionstrings.com/mysql-connector-odbc-5-1/info-and-download/
-        //private static string ConnectionString { get; set; } = "server=localhost;user=root;database=mydb;port=3306;password=8CatJumpropeBazooka!";
-        private static string ConnectionString { get; set; } = "server=10.63.4.107;user=dummy;database=mydb;port=3306;password=Passw0rd";
+        //private static string ConnectionString { get; set; } 
+        private static string ConnectionString { get; set; } //= "server=10.63.4.107;user=dummy;database=mydb;port=3306;password=Passw0rd";
         public enum EFileType
         {
             smhr,
@@ -33,24 +36,111 @@ namespace RTSParser
         private static bool IsDirectory { get; set; }
         //private static EFileType InputFileType { get; set; }
 
+        private static List<Table> AllTables { get; set; }
+
         static void Main(string[] args)
         {
-            bool quitflag = false;
-            EFileType fileType;
-            while (!quitflag)
+            bool successfulInitialization = CompleteInitialization();
+
+            if (successfulInitialization)
             {
-                bool success = ReadInput(out fileType, out quitflag);
-
-                if (success)
+                bool quitflag = false;
+                EFileType fileType;
+                while (!quitflag)
                 {
-                    bool postProcessorsuccess = RunPostProcessor(fileType, out quitflag);
+                    bool success = ReadInput(out fileType, out quitflag);
 
-                    if (postProcessorsuccess)
+                    if (success)
                     {
-                        System.Windows.Forms.MessageBox.Show("Successfully produced output file.");
+                        bool postProcessorsuccess = RunPostProcessor(fileType, out quitflag);
+
+                        if (postProcessorsuccess)
+                        {
+                            System.Windows.Forms.MessageBox.Show("Successfully produced output file.");
+                        }
                     }
                 }
             }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Unable to read the database");
+            }
+        }
+
+        private static bool CompleteInitialization()
+        {
+            try
+            {
+                ConnectionString = ReadConfigFile();
+                //InitializeAllTables()
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+            return true;
+        }
+
+        private static string ReadConfigFile()
+        {
+            string localPath = Environment.GetEnvironmentVariable("LocalAppData");
+            string fileName = localPath + "\\MAFTL\\ParserDatabaseFile\\Config.txt";
+
+            System.IO.StreamReader file = new System.IO.StreamReader(fileName);
+            string line;
+            string tempConnectionStr = "";
+            while ((line = file.ReadLine()) != null)
+            {
+                tempConnectionStr += line;
+            }
+
+            return tempConnectionStr;
+        }
+
+        private static bool InitializeAllTables()
+        {
+            MySqlConnection conn = null;
+
+            try
+            {
+                conn = new MySqlConnection(ConnectionString);
+                conn.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                conn.Close();
+                return false;
+            }
+
+            try
+            {
+
+                //First need to get all of the table names that we care about.
+                //Working assumption is that all relevant tables begin with 'tb'. 
+                string command = "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME LIKE 'tb%'";
+                MySqlCommand cmd = new MySqlCommand(command, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                //string primaryKeyColumnName = "";
+                while (rdr.Read())
+                {
+                    
+                    //Console.WriteLine(rdr[4]);
+                    //primaryKeyColumnName = rdr[4].ToString();
+                }
+                //rdr.Close();
+
+                rdr.Close();
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                conn.Close();
+            }
+            return true;
         }
 
         private static bool ReadInput(out EFileType fileType, out bool quitflag)

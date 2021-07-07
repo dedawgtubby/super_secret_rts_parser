@@ -72,6 +72,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SmhrDynamicData.cs" />
     <Compile Include="SmhrStaticData.cs" />
+    <Compile Include="Table.cs" />
     <Compile Include="TBLData.cs" />
   </ItemGroup>
   <ItemGroup>

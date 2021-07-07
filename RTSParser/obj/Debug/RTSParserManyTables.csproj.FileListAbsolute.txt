@@ -13,8 +13,8 @@ C:\Users\p005442c\source\repos\RTSParserManyTables\RTSParser\bin\Debug\System.Me
 C:\Users\p005442c\source\repos\RTSParserManyTables\RTSParser\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\p005442c\source\repos\RTSParserManyTables\RTSParser\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\p005442c\source\repos\RTSParserManyTables\RTSParser\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\Users\p005442c\source\repos\RTSParserManyTables\RTSParser\obj\Debug\RTSParserManyTables.csprojAssemblyReference.cache
 C:\Users\p005442c\source\repos\RTSParserManyTables\RTSParser\obj\Debug\RTSParserManyTables.csproj.CoreCompileInputs.cache
 C:\Users\p005442c\source\repos\RTSParserManyTables\RTSParser\obj\Debug\RTSParserManyTables.csproj.CopyComplete
 C:\Users\p005442c\source\repos\RTSParserManyTables\RTSParser\obj\Debug\RTSParser.exe
 C:\Users\p005442c\source\repos\RTSParserManyTables\RTSParser\obj\Debug\RTSParser.pdb
+C:\Users\p005442c\source\repos\RTSParserManyTables\RTSParser\obj\Debug\RTSParserManyTables.csprojAssemblyReference.cache
